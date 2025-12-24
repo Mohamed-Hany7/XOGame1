@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- عرض الدور -->
+    <TextView
+        android:id="@+id/txtTurn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn: X"
+        android:textSize="22sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- شبكة اللعب -->
+    <GridLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:rowCount="3"
+        android:columnCount="3">
+
+        <Button android:id="@+id/b1" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+        <Button android:id="@+id/b2" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+        <Button android:id="@+id/b3" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+
+        <Button android:id="@+id/b4" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+        <Button android:id="@+id/b5" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+        <Button android:id="@+id/b6" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+
+        <Button android:id="@+id/b7" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+        <Button android:id="@+id/b8" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+        <Button android:id="@+id/b9" android:layout_width="0dp" android:layout_height="0dp" android:layout_rowWeight="1" android:layout_columnWeight="1" android:textSize="32sp"/>
+
+    </GridLayout>
+
+    <!-- زر إعادة -->
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Game"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
