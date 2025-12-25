@@ -1,18 +1,20 @@
 package com.example.xogame;
-
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     Button[] buttons = new Button[9];
     Button btnReset;
+    Button btnNewGame;
+
     TextView txtTurn;
+    TextView txtScore;
+    int scoreX = 0;
+    int scoreO = 0;
 
     int turn = 1;
     boolean gameOver = false;
@@ -23,7 +25,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         txtTurn = findViewById(R.id.txtTurn);
+        txtScore = findViewById(R.id.txtScore);
+
         btnReset = findViewById(R.id.btnReset);
+        btnNewGame = findViewById(R.id.btnNewGame);
+        btnNewGame.setOnClickListener(v -> newGame());
+
 
         for (int i = 0; i < 9; i++) {
             int id = getResources().getIdentifier("b" + (i + 1), "id", getPackageName());
@@ -68,11 +75,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         for (int[] w : win) {
             if (b[w[0]].equals("X") && b[w[1]].equals("X") && b[w[2]].equals("X")) {
+                scoreX++;
+                txtScore.setText(scoreO + " : " + scoreX);
+                buttons[w[0]].setBackgroundColor(Color.BLACK);
+                buttons[w[1]].setBackgroundColor(Color.BLACK);
+                buttons[w[2]].setBackgroundColor(Color.BLACK);
+
                 Toast.makeText(this, "X Wins!", Toast.LENGTH_SHORT).show();
                 gameOver = true;
                 return;
             }
             if (b[w[0]].equals("O") && b[w[1]].equals("O") && b[w[2]].equals("O")) {
+                scoreO++;
+                txtScore.setText(scoreO + " : " + scoreX);
+                buttons[w[0]].setBackgroundColor(Color.BLACK);
+                buttons[w[1]].setBackgroundColor(Color.BLACK);
+                buttons[w[2]].setBackgroundColor(Color.BLACK);
+
                 Toast.makeText(this, "O Wins!", Toast.LENGTH_SHORT).show();
                 gameOver = true;
                 return;
@@ -83,9 +102,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     void resetGame() {
         for (Button b : buttons) {
             b.setText("");
+            b.setBackgroundColor(Color.WHITE);
         }
         turn = 1;
         gameOver = false;
-        txtTurn.setText("Turn: X");
-    }
-}
+        txtTurn.setText("Turn: X");}
+
+    void newGame() {
+        for (Button b : buttons) {
+            b.setText("");
+            b.setBackgroundColor(Color.WHITE);
+        scoreX = 0;
+        scoreO = 0;
+        txtScore.setText("X: 0 | O: 0");
+        turn = 1;
+        gameOver = false;
+        txtTurn.setText("Turn: X");}}}
